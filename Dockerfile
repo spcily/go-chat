@@ -43,5 +43,5 @@ WORKDIR /work/
 COPY --from=builder /builder/lumenim .
 
 # 运行可执行文件
-ENTRYPOINT ["./lumenim http"]
-CMD ["--help"]
+# ENTRYPOINT ["./lumenim http"]
+CMD ["./lumenim http"]

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/urfave/cli/v2"
 	"go-chat/config"
 	"go-chat/internal/apis"
 	"go-chat/internal/comet"
@@ -9,6 +8,8 @@ import (
 	"go-chat/internal/pkg/core"
 	"go-chat/internal/pkg/logger"
 	_ "go-chat/internal/pkg/server"
+
+	"github.com/urfave/cli/v2"
 )
 
 // Version 服务版本号（默认）
@@ -31,9 +32,12 @@ func NewHttpCommand() core.Command {
 	return core.Command{
 		Name:  "http",
 		Usage: "Http Command - Http API 接口服务",
-		Action: func(ctx *cli.Context, c *config.Config) error {
-			logger.Init(c.Log.LogFilePath("app.log"), logger.LevelInfo, "http")
-			return apis.NewServer(ctx, NewHttpInjector(c))
+		Action: func(ctx *cli.Context, conf *config.Config) error {
+			logger.Init(conf.Log.LogFilePath("app.log"), logger.LevelInfo, "comet")
+			go comet.Run(ctx, NewCometInjector(conf))
+
+			logger.Init(conf.Log.LogFilePath("app.log"), logger.LevelInfo, "http")
+			return apis.Run(ctx, NewHttpInjector(conf))
 		},
 	}
 }

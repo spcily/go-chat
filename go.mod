@@ -4,6 +4,7 @@ go 1.23
 
 require (
 	github.com/bwmarrin/snowflake v0.3.0
+	github.com/envoyproxy/protoc-gen-validate v1.2.1
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-playground/locales v0.14.1
 	github.com/go-playground/universal-translator v0.18.1
@@ -22,7 +23,6 @@ require (
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/samber/lo v1.49.1
 	github.com/sourcegraph/conc v0.3.0
-	github.com/srikrsna/protoc-gen-gotag v1.0.2
 	github.com/stretchr/testify v1.10.0
 	github.com/tidwall/gjson v1.18.0
 	github.com/tidwall/sjson v1.2.5
@@ -46,7 +46,6 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
-	github.com/envoyproxy/protoc-gen-validate v1.2.1 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.0 // indirect

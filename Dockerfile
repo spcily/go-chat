@@ -44,4 +44,4 @@ COPY --from=builder /builder/lumenim .
 
 # 运行可执行文件
 # ENTRYPOINT ["./lumenim http"]
-CMD ["./lumenim http"]
+CMD ["./lumenim", "http"]

@@ -4,12 +4,13 @@ import (
 	"context"
 	"errors"
 
-	"github.com/gin-gonic/gin"
 	"go-chat/internal/apis/handler/web"
 	"go-chat/internal/entity"
 	"go-chat/internal/pkg/core"
 	"go-chat/internal/pkg/core/middleware"
 	"go-chat/internal/pkg/jwtutil"
+
+	"github.com/gin-gonic/gin"
 )
 
 // RegisterWebRoute 注册 Web 路由
@@ -34,6 +35,8 @@ func RegisterWebRoute(secret string, router *gin.Engine, handler *web.Handler, s
 			return nil
 		},
 	)
+
+	router.Static("/public", "./upload/public")
 
 	// v1 接口
 	v1 := router.Group("/api/v1")
